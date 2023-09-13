@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
 import './todo_model.dart';
@@ -54,5 +55,22 @@ class DatabaseConnect {
 
     //delete the todo from the database based on the id
     await db.delete('todo', where: 'id == ?', whereArgs: [todo.id]);
+  }
+
+  //function to fetch all the todo data from the database
+  Future<List<Todo>> getTodo() async {
+    final db = await database;
+    //get the database and save the todo as a list f maps
+    List<Map<String, dynamic>> items = await db.query(
+      'todo',
+      orderBy: 'id DESC', /* This will order the list by ID */
+    );
+    return List.generate(
+        items.length,
+        (i) => Todo(
+            id: items[i]['id'],
+            title: items[i]['title'],
+            creationDate: DateTime.parse(items[i]['creationDate']), // this will convert it to datetime format
+            isChecked: items[i]['isChecked'] == 1 ? true : false));
   }
 }
