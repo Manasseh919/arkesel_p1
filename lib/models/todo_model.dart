@@ -24,7 +24,7 @@ class Todo {
   //this function is for debugging only
   @override
   String toString() {
-    // TODO: implement toString
+    
     return 'Todo(id:$id,title:$title,creationDate:$creationDate,ischecked:$isChecked)';
   }
 }
