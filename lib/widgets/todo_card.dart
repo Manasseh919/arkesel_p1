@@ -1,4 +1,4 @@
-
+import 'package:arkesel_todo/models/todo_model.dart';
 import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable
@@ -26,6 +26,11 @@ class TodoCard extends StatefulWidget {
 class _TodoCardState extends State<TodoCard> {
   @override
   Widget build(BuildContext context) {
+    var anotherTodo = Todo(
+        id: widget.id,
+        title: widget.title,
+        creationDate: widget.creationDate,
+        isChecked: widget.isChecked);
     return Card(
       child: Row(
         children: [
@@ -38,17 +43,21 @@ class _TodoCardState extends State<TodoCard> {
                 setState(() {
                   widget.isChecked = value!;
                 });
+                anotherTodo.isChecked = value!;
+
+                widget.insertFuntion(anotherTodo);
               },
             ),
           ),
           //this is the title and date
-           Expanded(
+          Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                 widget.title,
-                  style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                  widget.title,
+                  style: const TextStyle(
+                      fontWeight: FontWeight.bold, fontSize: 18),
                 ),
                 const SizedBox(
                   height: 5,
@@ -64,7 +73,9 @@ class _TodoCardState extends State<TodoCard> {
             ),
           ),
           //this is the delete button
-          IconButton(onPressed: () {}, icon: const Icon(Icons.delete))
+          IconButton(
+              onPressed: ()=>widget.deleteFunction(anotherTodo),
+              icon: const Icon(Icons.delete))
         ],
       ),
     );

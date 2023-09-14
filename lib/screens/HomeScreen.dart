@@ -3,7 +3,7 @@ import 'package:arkesel_todo/models/todo_model.dart';
 import 'package:arkesel_todo/widgets/todo_card.dart';
 import 'package:arkesel_todo/widgets/todo_list.dart';
 import 'package:arkesel_todo/widgets/user_input.dart';
-import 'package:flutter/foundation.dart';
+
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -35,14 +35,14 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFF5EBFF),
+      backgroundColor: Colors.white,
       appBar: AppBar(
         title: const Text("Simple Todo App"),
       ),
       body: Column(
         children: [
           //this is where all the widgets are
-          TodoList(),
+          TodoList(insertFunction: addItem,deleteFunction: deleteItem,),
 
           UserInput(insertFunction: addItem,),
         ],

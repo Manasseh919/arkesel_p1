@@ -1,12 +1,15 @@
 import 'package:arkesel_todo/models/db_model.dart';
 import 'package:arkesel_todo/widgets/todo_card.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class TodoList extends StatelessWidget {
   //create an object of database connect
+  final Function deleteFunction;
+  final Function insertFunction;
   var db = DatabaseConnect();
-  TodoList({super.key});
+  TodoList(
+      {required this.insertFunction, required this.deleteFunction, super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -29,8 +32,9 @@ class TodoList extends StatelessWidget {
                         title: data[i].title,
                         creationDate: data[i].creationDate,
                         isChecked: data[i].isChecked,
-                        insertFuntion: () {},
-                        deleteFunction: () {}));
+                        insertFuntion: insertFunction,
+                        deleteFunction: deleteFunction),
+                  );
           }),
     );
   }

@@ -1,6 +1,7 @@
 import 'package:arkesel_todo/models/todo_model.dart';
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class UserInput extends StatelessWidget {
   UserInput({required this.insertFunction, super.key});
 
@@ -10,7 +11,7 @@ class UserInput extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Color(0xFFDAB5FF),
+      color: const Color(0xFFDAB5FF),
       padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 8),
       child: Row(
         children: [
@@ -19,7 +20,7 @@ class UserInput extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 5),
               child: TextField(
                 controller: textController,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                     hintText: "add new todos", border: InputBorder.none),
               ),
             ),
