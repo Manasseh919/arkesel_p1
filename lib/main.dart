@@ -1,3 +1,4 @@
+import 'package:arkesel_todo/screens/HomeScreen.dart';
 import 'package:flutter/material.dart';
 import './models/todo_model.dart';
 import './models/db_model.dart';
@@ -22,7 +23,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home: Scaffold(),
+      home: HomeScreen(),
     );
   }
 }
