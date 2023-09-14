@@ -41,19 +41,19 @@ class _TodoCardState extends State<TodoCard> {
             ),
           ),
           //this is the title and date
-          const Expanded(
+           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  "title",
+                 widget.title,
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
                 ),
                 SizedBox(
                   height: 5,
                 ),
                 Text(
-                  'date',
+                  widget.creationDate.toString(),
                   style: TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.bold,

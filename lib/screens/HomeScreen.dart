@@ -1,4 +1,5 @@
 import 'package:arkesel_todo/widgets/todo_card.dart';
+import 'package:arkesel_todo/widgets/todo_list.dart';
 import 'package:arkesel_todo/widgets/user_input.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -21,7 +22,7 @@ class _HomeScreenState extends State<HomeScreen> {
       body: Column(
         children: [
           //this is where all the widgets are
-          TodoCard(),
+         TodoList(),
 
           UserInput(),
         ],
