@@ -1,6 +1,7 @@
-import 'package:flutter/foundation.dart';
+
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class TodoCard extends StatefulWidget {
   final int id;
   final String title;
@@ -30,7 +31,7 @@ class _TodoCardState extends State<TodoCard> {
         children: [
           //this is the checkbox
           Container(
-            margin: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+            margin: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
             child: Checkbox(
               value: widget.isChecked,
               onChanged: (bool? value) {
@@ -47,14 +48,14 @@ class _TodoCardState extends State<TodoCard> {
               children: [
                 Text(
                  widget.title,
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                  style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 5,
                 ),
                 Text(
                   widget.creationDate.toString(),
-                  style: TextStyle(
+                  style: const TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
                       color: Color(0xFF8F8F8F)),
@@ -63,7 +64,7 @@ class _TodoCardState extends State<TodoCard> {
             ),
           ),
           //this is the delete button
-          IconButton(onPressed: () {}, icon: Icon(Icons.delete))
+          IconButton(onPressed: () {}, icon: const Icon(Icons.delete))
         ],
       ),
     );

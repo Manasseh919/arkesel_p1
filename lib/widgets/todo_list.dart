@@ -19,7 +19,7 @@ class TodoList extends StatelessWidget {
             var datalength = data!.length;
 
             return datalength == 0
-                ? Center(
+                ? const Center(
                     child: Text('no data found'),
                   )
                 : ListView.builder(
